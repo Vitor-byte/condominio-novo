@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "server.ts",
-    "server": "server.ts"
+    "start": "src/server.ts",
+    "server": "src/server.ts"
   },
   "keywords": [],
   "author": "",
