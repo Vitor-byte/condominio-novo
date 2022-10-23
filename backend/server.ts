@@ -6,4 +6,4 @@ app.use(cors())
 app.use(express.json());
 app.use(router);
 
-app.listen(7000, () => console.log("Server rodando"));
+app.listen(process.env.port || 7000, () => console.log("Server rodando"));

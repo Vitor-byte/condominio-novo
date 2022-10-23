@@ -14,6 +14,6 @@ export class alterarCondominoCaso{
         const condomino = await client.query('UPDATE condomino SET rg=$2, nome_completo=$3, senha=$4, bloco=$5, unidade=$6 WHERE id_condomino=$1 RETURNING *',
         [id, rg, nome, bloco, unidade]);
 
-        return reqBody.nome;
+        return condomino;
     }
 }

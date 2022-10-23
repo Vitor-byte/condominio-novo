@@ -6,7 +6,11 @@ import { alterarCondominoCaso} from '../casos-uso/condomino/alterar-condomino-ca
 export class condominoControlador{
     async incluir(request: Request, response: Response){
         const resultado = await new incluirCondominoCaso().incluir(request.body);
-        return response.status(201).json(resultado);
+        if(typeof resultado == 'string'){
+            return response.status(200).json(resultado);
+        }else{
+            return response.status(201).json(resultado);
+        }
     }
     async excluir(request: Request, response: Response){
         const resultado = await new excluirCondominoCaso().excluir(request.params);

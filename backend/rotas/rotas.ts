@@ -8,5 +8,4 @@ router.post("/condomino", new condominoControlador().incluir);
 router.delete("/condomino/:id", new condominoControlador().excluir);
 router.patch("/condomino/:id", new condominoControlador().alterar);
 
-
 export{router};

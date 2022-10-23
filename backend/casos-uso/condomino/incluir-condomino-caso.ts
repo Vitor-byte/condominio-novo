@@ -1,5 +1,4 @@
-import {client} from '../../conexao-banco/postgres'
-
+import {client} from '../../conexao-banco/postgres';
 export class incluirCondominoCaso{
     async incluir(reqBody:any){      
         const {rg, nome, senha, email, inadimplente } = reqBody;
