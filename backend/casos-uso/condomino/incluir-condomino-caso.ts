@@ -3,17 +3,24 @@ import { v4 as uuidv4 } from 'uuid';
 
 export class incluirCondominoCaso{
     async incluir(reqBody:any){      
-        const {rg, nome, login, senha, email } = reqBody;
-        if(!validaEmail(email)){
-            return "Email invalido!"
-        }
-        //const condomino = await client.query('SELECT rg FROM condomino WHERE rg=$1',[rg])
+        const {rg, nome, senha, email, inadimplente } = reqBody;
         
-        const id = uuidv4();  
-        const condomino = await client.query('INSERT INTO condomino(id_condomino, rg, nome_completo, login, senha, email) VALUES ($1, $2, $3, $4, $5, $6) RETURNING  *',
-       [ 9, rg, nome, login, senha, email]);
+        const verifica_rg = await client.query('SELECT COUNT(1) FROM condomino WHERE rg=$1',[rg])
+        if(verifica_rg.rows[0].count != 0){
+            return "RG invalido!";
+        }
+
+        const verifica_email = await client.query('SELECT COUNT(1) FROM condomino WHERE rg=$1',[email])
+        if(verifica_email.rows[0].count != 0){
+            return "Email invalido!";
+        }
+
+        const condomino = await client.query('INSERT INTO condomino(rg, nome_completo, senha, email, situacao, inadimplente) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+       [rg, nome, senha, email, "Ativo", inadimplente]);
         return condomino.rows;
     }
+    }
+    
 }
 
 function validaEmail(email: any) {
