@@ -1,14 +1,11 @@
+import dotenv from "dotenv"
+dotenv.config();
 const { Client } = require("pg");
-require('dotenv').config()
+const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`;
 const client = new Client({
-    user: process.env.DB_HOST,
-    host: process.env.DB_USER,
-    database: process.env.DB_DATA,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-    connectionTimeoutMillis:0
+  connectionString,
   });
-  client.connect();
+client.connect();
 
  export{client};
 
