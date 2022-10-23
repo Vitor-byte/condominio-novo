@@ -1,6 +1,6 @@
 require('dotenv').config()
 import express from "express";
-import {router} from "./src/rotas/rotas";
+import {router} from "./rotas/rotas";
 
 var cors = require('cors')
 const app = express();

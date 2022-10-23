@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "src/server.ts",
+    "start": " ts-node ./src/server.ts",
     "server": "src/server.ts"
   },
   "keywords": [],
