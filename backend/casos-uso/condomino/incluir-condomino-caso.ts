@@ -1,5 +1,4 @@
 import {client} from '../../conexao-banco/postgres'
-import { v4 as uuidv4 } from 'uuid';
 
 export class incluirCondominoCaso{
     async incluir(reqBody:any){      
@@ -19,9 +18,8 @@ export class incluirCondominoCaso{
        [rg, nome, senha, email, "Ativo", inadimplente]);
         return condomino.rows;
     }
-    }
-    
 }
+    
 
 function validaEmail(email: any) {
     const emailRegex =  /^([a-zA-Z][^<>\"!@[\]#$%¨&*()~^:;ç,\-´`=+{}º\|/\\?]{1,})@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
