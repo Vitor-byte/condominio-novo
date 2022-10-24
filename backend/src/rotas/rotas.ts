@@ -7,5 +7,6 @@ const router = Router();
 router.post("/condomino", new condominoControlador().incluir);
 router.delete("/condomino/:id", new condominoControlador().excluir);
 router.patch("/condomino/:id", new condominoControlador().alterar);
+router.get("/condominos", new condominoControlador().consultar);
 
 export{router};
