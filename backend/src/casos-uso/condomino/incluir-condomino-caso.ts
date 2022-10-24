@@ -13,8 +13,8 @@ export class incluirCondominoCaso{
             return "Email invalido!";
         }
 
-        const condomino = await client.query('INSERT INTO condomino(rg, nome_completo, senha, email, situacao, inadimplente) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-       [rg, nome, senha, email, "Ativo", inadimplente]);
+        const condomino = await client.query('INSERT INTO condomino(rg, nome_completo, senha, email, situacao) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+       [rg, nome, senha, email, "Ativo"]);
         return condomino.rows;
     }
 }
