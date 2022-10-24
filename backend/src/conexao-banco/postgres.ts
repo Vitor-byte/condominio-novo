@@ -10,6 +10,7 @@ const client = new Client({
   connectionString: isProduction ? process.env.DATABASE_URL: connectionString,
   dialectOptions: {
     ssl: {
+      "require": true,
         rejectUnauthorized: false
     }
 }
