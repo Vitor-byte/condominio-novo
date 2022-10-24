@@ -8,9 +8,11 @@ const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_P
 
 const client = new Client({
   connectionString: isProduction ? process.env.DATABASE_URL: connectionString,
-  ssl: {
-    rejectUnauthorized: true,
-  }
+  dialectOptions: {
+    ssl: {
+        rejectUnauthorized: false
+    }
+}
   });
 client.connect();
 
