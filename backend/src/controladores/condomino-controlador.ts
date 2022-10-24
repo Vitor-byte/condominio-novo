@@ -22,7 +22,7 @@ export class condominoControlador{
         return response.status(201).json(resultado);
     }
     async consultar(request: Request, response: Response){
-        const resultado = await new consultarCondominoCaso().consultar(request.params);
+        const resultado = await new consultarCondominoCaso().consultar();
         return response.status(201).json(resultado);
     }
 }
